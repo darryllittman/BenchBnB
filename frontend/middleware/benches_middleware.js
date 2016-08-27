@@ -1,13 +1,15 @@
-import { BenchConstants } from '../actions/bench_actions';
+import { BenchConstants, receiveBenches } from '../actions/bench_actions';
+import { fetchBenches } from '../util/bench_api_util';
 
 const BenchesMiddleware = ({getState, dispatch}) => next => action => {
   switch(action.type) {
-    BenchConstants.REQUEST_BENCHES:
-      console.log('reqeust benches middleware section');
-      return next(action);
+    case BenchConstants.REQUEST_BENCHES:
+      const success = data => dispatch(receiveBenches(data));
+      fetchBenches(success);
+      next(action);
     default:
     return next(action);
   }
-}
+};
 
 export default BenchesMiddleware;
