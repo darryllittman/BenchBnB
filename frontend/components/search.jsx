@@ -2,11 +2,10 @@ import React from 'react';
 import BenchMap from './bench_map';
 import BenchIndex from './bench_index';
 
-// deconstruct props? Which props need to be passed?
-const Search = () => (
+const Search = ({benches, requestBenches}) => (
   <div>
-    <BenchMap />
-    <BenchIndex />
+    <BenchMap requestBenches={requestBenches} benches={benches}/>
+    <BenchIndex benches={benches} requestBenches={requestBenches}/>
   </div>
 );
 

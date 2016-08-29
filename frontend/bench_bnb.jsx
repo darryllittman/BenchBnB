@@ -14,7 +14,7 @@ import SearchContainer from './components/search_container';
   const configuredStore = configureStore();
   const Root = () => (
     <Provider store={configuredStore}>
-      <BenchIndexContainer />
+      <SearchContainer />
     </Provider>
   );
 
