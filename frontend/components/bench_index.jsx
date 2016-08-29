@@ -1,19 +1,22 @@
 import React from 'react';
 import { fetchBenches } from '../util/bench_api_util';
+import BenchIndexItem from './bench_index_item';
 
-class BenchIndex extends React.component {
+class BenchIndex extends React.Component {
   componentDidMount() {
-    this.benches = fetchBenches();
+    this.props.requestBenches();
   }
 
   render() {
-    const b = this.benches.map ((bench) => (<li>{bench}</li>));
+
+    const b = this.props.benches.map ((bench) => (<BenchIndexItem
+      bench={bench} key={bench.lat+bench.lng}/>));
     return (
       <ul>
-        {b};
+        {b}
       </ul>
     );
   }
 }
-//WHICH BenchIndexItem to clean up BenchIndex component's
+
 export default BenchIndex;

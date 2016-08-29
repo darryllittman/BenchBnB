@@ -5,12 +5,26 @@ import RootReducer from './reducers/root_reducer';
 import { BenchConstants, requestBenches, receiveBenches }
   from './actions/bench_actions';
 import { fetchBenches } from './util/bench_api_util';
+import { Provider } from 'react-redux';
+import BenchIndexContainer
+  from './components/bench_index_container';
+import Search from './components/search';
+import SearchContainer from './components/search_container';
+
+  const configuredStore = configureStore();
+  const Root = () => (
+    <Provider store={configuredStore}>
+      <BenchIndexContainer />
+    </Provider>
+  );
 
 document.addEventListener("DOMContentLoaded", () => {
   const content = document.getElementById('root');
-  ReactDOM.render(<div>"I'm in"</div>, content);
+  // ReactDOM.render(<div>i'm working</div>, content);
+  ReactDOM.render(<Root />, content);
 
   window.store = configureStore();
   window.requestBenches = requestBenches;
   window.fetchBenches = fetchBenches;
+
 });
