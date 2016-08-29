@@ -11,6 +11,8 @@ import BenchIndexContainer
 import Search from './components/search';
 import SearchContainer from './components/search_container';
 
+
+// google maps key: AIzaSyCmVhh9ZclSkVg-4Fq7fCFBINbZnUtCXrw
   const configuredStore = configureStore();
   const Root = () => (
     <Provider store={configuredStore}>
