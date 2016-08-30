@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ReactDOM.render(<div>i'm working</div>, content);
   ReactDOM.render(<Root />, content);
 
-  window.store = configureStore();
+  window.store = configuredStore;
   window.requestBenches = requestBenches;
   window.fetchBenches = fetchBenches;
 
